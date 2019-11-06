@@ -12,19 +12,13 @@ public class enemy : MonoBehaviour
     }
 
 // Update is called once per frame
-void Update()
-{
-        transform.Rotate( 1f, 1f, 1f );
-    transform.Translate( 0, 0, -speed * Time.deltaTime );
-        if (transform.position.z > 30) {
-         //   Destroy( GameObject );
+    void Update()
+    {
+    transform.Rotate( 1f, 1f, 1f );
+    transform.Translate( 0, 0, -speed * Time.deltaTime,Space.World );
+        if (transform.position.z < -10) {
+            FindObjectOfType<GameController>().GameOver();
         }
-
-        }
-   // private void OnColisionEnter(Colision colision) {
-     //   if (colision.gameObject.tag == "enemy") {
-       //     Destroy(enemy);
-        //}
-    //}
+    } 
 }
     

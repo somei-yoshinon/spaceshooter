@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.Translate( Input.GetAxis( "Horizontal" ), 0, 0 );
-        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
